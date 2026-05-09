@@ -1,45 +1,39 @@
 require("codecompanion").setup({
   adapters = {
-    openrouter = function()
-      return require("codecompanion.adapters").extend("openai", {
-        name = "openrouter",
-        url = "https://openrouter.ai/api/v1/chat/completions",
-        env = {
-          api_key = os.getenv("OPENROUTER_API_KEY"),
-        },
-        headers = {
-          ["HTTP-Referer"] = "https://neovim.org",
-        },
-        schema = {
-          model = {
-            default = "nvidia/nemotron-nano-9b-v2:free",
-            choices = {
-              "deepseek/deepseek-chat-v3.1:free",
-              "nvidia/nemotron-nano-9b-v2:free",
-              "openai/gpt-oss-20b:free",
+    http = {
+      openrouter = function()
+        return require("codecompanion.adapters").extend("openai_compatible", {
+          name = "openrouter",
+          url = "https://openrouter.ai/api/v1/chat/completions",
+          env = {
+            api_key = os.getenv("OPENROUTER_API_KEY"),
+          },
+          headers = {
+            ["HTTP-Referer"] = "https://neovim.org",
+            ["X-Title"] = "Neovim CodeCompanion",
+          },
+          schema = {
+            model = {
+              default = "inclusionai/ring-2.6-1t:free",
+              choices = {
+                "inclusionai/ring-2.6-1t:free",
+                "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+                -- agrega más aquí
+              },
             },
+            max_tokens = { default = 2000 },
           },
-          max_tokens = {
-            default = 2000,
-          },
-        },
-      })
-    end,
+        })
+      end,
+    },
   },
+
   strategies = {
-    chat = {
-      adapter = "openrouter",
-      -- model = "deepseek/deepseek-chat-v3.1:free",
-    },
-    inline = {
-      adapter = "openrouter",
-      -- model = "deepseek/deepseek-chat-v3.1:free",
-    },
-    cmd = {
-      adapter = "openrouter",
-      -- model = "deepseek/deepseek-chat-v3.1:free",
-    },
+    chat = { adapter = "openrouter" },
+    inline = { adapter = "openrouter" },
+    cmd = { adapter = "openrouter" },
   },
+
   opts = {
     log_level = "DEBUG",
   },
