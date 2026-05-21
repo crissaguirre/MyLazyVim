@@ -14,9 +14,9 @@ require("codecompanion").setup({
           },
           schema = {
             model = {
-              default = "inclusionai/ring-2.6-1t:free",
+              default = "baidu/cobuddy:free",
               choices = {
-                "inclusionai/ring-2.6-1t:free",
+                "openrouter/owl-alpha",
                 "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
                 -- agrega más aquí
               },
