@@ -1,4 +1,9 @@
 require("codecompanion").setup({
+  integrations = {
+    herdr = {
+      enabled = false,
+    },
+  },
   adapters = {
     http = {
       openrouter = function()
@@ -14,11 +19,9 @@ require("codecompanion").setup({
           },
           schema = {
             model = {
-              default = "baidu/cobuddy:free",
+              default = "nvidia/nemotron-3-ultra-550b-a55b:free",
               choices = {
-                "openrouter/owl-alpha",
-                "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-                -- agrega más aquí
+                "nvidia/nemotron-3-ultra-550b-a55b:free",
               },
             },
             max_tokens = { default = 2000 },
