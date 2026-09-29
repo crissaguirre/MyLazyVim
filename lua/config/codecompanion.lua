@@ -19,9 +19,9 @@ require("codecompanion").setup({
           },
           schema = {
             model = {
-              default = "nvidia/nemotron-3-ultra-550b-a55b:free",
+              default = "inclusionai/ling-3.0-flash-fin:free",
               choices = {
-                "nvidia/nemotron-3-ultra-550b-a55b:free",
+                "inclusionai/ling-3.0-flash-fin:free",
               },
             },
             max_tokens = { default = 2000 },
