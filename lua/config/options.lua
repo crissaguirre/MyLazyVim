@@ -11,5 +11,5 @@ vim.opt.breakindent = true -- Mantiene indentación visual en la nueva línea
 -- vim.opt.softtabstop = 4 -- Espacios al presionar <Tab>
 -- vim.opt.smartindent = true
 -- vim.opt.autoindent = true
-vim.g.autoformat = false
+vim.g.autoformat = true
 vim.opt.clipboard = "unnamedplus"
