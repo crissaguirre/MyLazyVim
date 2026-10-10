@@ -19,9 +19,9 @@ require("codecompanion").setup({
           },
           schema = {
             model = {
-              default = "inclusionai/ling-3.0-flash-fin:free",
+              default = "apodex/apodex-1.1-mini:free",
               choices = {
-                "inclusionai/ling-3.0-flash-fin:free",
+                "apodex/apodex-1.1-mini:free",
               },
             },
             max_tokens = { default = 2000 },

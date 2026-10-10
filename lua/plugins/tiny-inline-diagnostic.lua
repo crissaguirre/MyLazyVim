@@ -1,9 +1,9 @@
 return {
-  "rachartier/tiny-inline-diagnostic.nvim",
-  event = "VeryLazy",
-  priority = 1000,
-  config = function()
-    require("tiny-inline-diagnostic").setup({
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy",
+    priority = 1000,
+    opts = {
       preset = "modern",
       options = {
         show_source = true,
@@ -17,19 +17,16 @@ return {
           mode = "wrap",
         },
       },
-    })
-    vim.diagnostic.config({
-      virtual_text = false,
-      virtual_lines = false,
-      signs = true,
-    })
-    vim.api.nvim_create_autocmd("LspAttach", {
-      callback = function()
-        vim.diagnostic.config({
-          virtual_text = false,
-          virtual_lines = false,
-        })
-      end,
-    })
-  end,
+    },
+  },
+  -- Desactivar el virtual_text nativo desde LazyVim (tiny-inline-diagnostic lo reemplaza)
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      diagnostics = {
+        virtual_text = false,
+        virtual_lines = false,
+      },
+    },
+  },
 }
