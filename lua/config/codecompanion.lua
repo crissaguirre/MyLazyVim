@@ -1,9 +1,4 @@
 require("codecompanion").setup({
-  integrations = {
-    herdr = {
-      enabled = false,
-    },
-  },
   adapters = {
     http = {
       openrouter = function()
@@ -38,6 +33,6 @@ require("codecompanion").setup({
   },
 
   opts = {
-    log_level = "DEBUG",
+    log_level = "ERROR",
   },
 })
